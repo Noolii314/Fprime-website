@@ -47,12 +47,10 @@ img {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 8vw;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 0.6),
-    transparent
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.6),
+      transparent);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -164,12 +162,14 @@ img {
 .nav-toggle.open span:nth-child(1) {
   transform: translateY(3.5px) rotate(45deg);
 }
+
 .nav-toggle.open span:nth-child(2) {
   transform: translateY(-3.5px) rotate(-45deg);
 }
 
 main {
-  margin-top: 72px; /* header height */
+  margin-top: 72px;
+  /* header height */
 }
 
 /* PANELS (sections) */
@@ -596,6 +596,7 @@ footer span {
 /* RESPONSIVE */
 
 @media (max-width: 1024px) {
+
   .industries-grid,
   .process-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -609,7 +610,7 @@ footer span {
 
 @media (max-width: 768px) {
   .site-header {
-    padding-inline: 5vw;
+    padding-inline: 1.5rem;
   }
 
   main {
@@ -617,8 +618,8 @@ footer span {
   }
 
   .panel {
-    padding-inline: 5vw;
-    padding-block: 4.5rem;
+    padding-inline: 1.5rem;
+    padding-block: 4rem;
     min-height: auto;
   }
 
@@ -641,21 +642,25 @@ footer span {
     align-items: stretch;
   }
 
+  /* Improved Mobile Navigation */
   .nav {
     position: fixed;
-    inset: 0 0 0 35%;
+    inset: 0;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    padding: 3rem 2rem;
-    background: radial-gradient(circle at top, #06091a, #000000);
+    align-items: center;
+    padding: 2rem;
+    background: rgba(2, 4, 10, 0.98);
+    backdrop-filter: blur(15px);
     transform: translateX(100%);
-    transition: transform 0.25s ease-out;
-    gap: 1.2rem;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    gap: 2rem;
+    z-index: 99;
   }
 
   .nav a {
-    font-size: 0.85rem;
+    font-size: 1.1rem;
+    font-weight: 500;
   }
 
   .nav.nav-open {
@@ -663,16 +668,37 @@ footer span {
   }
 
   .nav-toggle {
-    display: inline-flex;
+    display: flex;
+    z-index: 101;
+    /* Above nav */
   }
 
   .nav-cta {
     margin-top: 0.5rem;
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
   }
 }
 
 @media (max-width: 480px) {
   h1 {
-    font-size: 2.1rem;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .panel {
+    padding-inline: 1.2rem;
+  }
+
+  .site-header {
+    padding-inline: 1.2rem;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
   }
 }
